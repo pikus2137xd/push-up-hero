@@ -1,56 +1,58 @@
-TRENING HERO 3.0 — 10 listopada 2026
+TRENING HERO 4.0 — 10 listopada 2026
 
 ZMIANY
-- Nowa nazwa aplikacji i manifestu: TRENING HERO.
-- Lobby z 8 ćwiczeniami oraz strzałką powrotu w każdym ćwiczeniu.
-- Pompki przodem: 1,5 s kalibracji pozycji górnej; wspólny ruch pionowy
-  głowy i barków w dół i powrót, bez sprawdzania kąta łokci.
-- Pompki bokiem: zachowany pomiar kąta łokcia.
-- Deska: widoczny podpór i linia ciała, 1 s stabilizacji, obrażenia za czas.
-  Jedna seria: 1 HP/s, po 10 s 2 HP/s, po 30 s 3 HP/s.
-- Bieżnia: RĘCZNY timer, prędkość wpisana suwakiem, moc = km/h / 6.
-  Brak automatycznego pomiaru prędkości bieżni.
-- Brzuszki, uginanie ramienia z hantlem, przysiady, pajacyki, wysokie kolana.
-- Osobne wyniki ćwiczeń, wspólna walka, migracja starego lokalnego zapisu.
-- Wersjonowana pamięć offline; kamera wymaga internetu.
+- Domyślne „Czułe — krótsze ruchy”, z wyborem profilu Dokładne.
+- Pompki przodem: próg 14% szerokości barków (wcześniej 24%),
+  łagodniejszy powrót, suwak 8–40%, opis „mniej = czulej”.
+- Płytsze zakresy dla pompek bokiem, przysiadów, brzuszków i hantli;
+  łatwiejszy rozstaw pajacyków i niższe uniesienie kolan.
+- Czułe: stabilizacja 110 ms i odstęp 650 ms; Dokładne: 180/850 ms.
+- Zachowana kalibracja, ruch w obie strony, odrzucanie samych drgnięć,
+  samego kiwania głową i utraty widoczności. Dokładność nie jest gwarantowana.
+- Osiem osobnych bossów z innymi nazwami, kolorami, detalami wyglądu,
+  historiami i zakończeniami. Niezależne HP i liczby zwycięstw.
+- Resetuj bossa: jednym kliknięciem przywraca HP i początek bieżącej
+  historii, zatrzymuje trening, zachowuje statystyki i monety.
+- Nagroda za pierwsze zwycięstwo nie powtarza się po resecie.
+- Migracja poprzednich wyników i monet; dawna wspólna walka zostaje
+  przypisana pompkowemu bossowi, pozostałe siedem misji startuje od nowa.
 
-WYKONANE TESTY
-- Poprawność składni plików JavaScript.
-- 16 grup testów automatycznych w Node (TEST-LOGIC.cjs): zapis, migracja,
-  walki, nagrody, osobny tryb testowy, pełne sekwencje powtórzeń,
-  odrzucenie drgnięć/utraty widoczności/przerw w klatkach,
-  kalibracja pompek przodem, odrzucenie samego kiwania głową,
-  pompki bokiem, brzuszki, ciężarki, przysiady, pajacyki, wysokie kolana,
-  widoczność i podparcie deski, mnożnik deski, proporcjonalna moc bieżni.
-- Dane sylwetki w testach są SZTUCZNE. Nie są nagraniem ćwiczącej osoby.
-- Przeglądarka Windows: lobby i otwieranie wszystkich 8 ćwiczeń,
-  obecność strzałki i działający powrót do lobby.
-- Bieżnia w przeglądarce: przy 6 km/h naliczono 4 HP w około 4 s,
-  pauza zatrzymała naliczanie; wynik zachowany po powrocie i przeładowaniu.
-  Suwak 20 km/h pokazał moc 3,33 HP/s.
-- Wąski układ przeglądarki: zadany viewport 390x844, dostępna szerokość
-  375 px po odjęciu paska przewijania, brak przepełnienia poziomego.
-  To zmiana rozmiaru przeglądarki, nie emulacja Safari/iOS.
-- Diagnostyka biblioteki MediaPipe 0.10.21, WASM i modelu lite w przeglądarce:
-  poprawnie pobrano i uruchomiono model CPU oraz analizę pustego obrazu
-  640x480, wynik 0 sylwetek. Test nie włączał fizycznej kamery.
-- ZIP: CRC wszystkich wpisów, zgodność bajtowa z projektem, kompletność
-  odwołań lokalnych HTML/manifestu/service workera; SHA-256 w raporcie obok ZIP-a.
+TESTY AUTOMATYCZNE
+23 grupy testów logiki w Node, na sztucznych danych sylwetki:
+- niezależność HP, własne historie i zakończenia wszystkich 8 bossów;
+- reset zachowuje statystyki/monety i nie dubluje nagrody;
+- migracja zapisu wersji 2/3 do 4;
+- walki i oddzielny licznik testowy;
+- liczenie dla wszystkich trybów ruchu oraz model deski/bieżni;
+- płytsze ruchy zaliczają się w Czułe i nie w Dokładne;
+- płytkie pompki przodem z częściowym powrotem;
+- odrzucenie samego kiwania głową, drgnięć, przerw i utraty widoczności;
+- stabilizacja oraz konieczność ruchu w obie strony.
+Syntetyczne dane nie zastępują testu na ćwiczącej osobie.
+Składnia app.js, core.js i sw.js: sprawdzana przed publikacją.
+Test kodu aplikacji w symulowanym DOM potwierdził także podpięcie
+przycisku resetu, niezależność HP, zakończenie i ponowny początek historii,
+zachowanie monet/liczników oraz zmianę profilu czułości i schemat zapisu.
+To test kodu zdarzeń aplikacji, nie test fizycznej kamery ani przeglądarki.
 
-NIE TESTOWANO
-- Fizycznej kamery, rzeczywistych ćwiczeń, dokładności zliczania na osobie.
-- Instalacji i działania na fizycznym iPhonie.
-- Połączenia z bieżnią ani automatycznego pomiaru prędkości: brak tej funkcji.
-- Masy hantli lub poprawności techniki ćwiczenia: brak tych funkcji.
+TESTY PRZEGLĄDARKI
+Wyświetlenie nowego pompkowego i deskowego bossa, ich historii i własnych HP.
+Przełącznik Dokładne/Czułe zmienia próg na 24%/14%.
+Dalsze wykonane kontrole UI i publikacji opisuje raport publikacji obok ZIP-a.
+Po wznowieniu podglądu sprawdzono w rzeczywistej przeglądarce:
+- cios testowy obniża HP z 30 do 29;
+- Resetuj bossa przywraca 30/30 HP jednym kliknięciem;
+- przejście do deski pokazuje innego bossa z niezależnym 70/70 HP;
+- pokonanie pompkowego bossa wyświetla zakończenie historii;
+- Zagraj ponownie przywraca jej początek i 30/30 HP, zachowując 25 monet
+  i licznik 31 ciosów testowych.
 
 OGRANICZENIA
-Eksperymentalne rozpoznawanie; nie można zagwarantować braku błędów.
-Kamera od przodu wymaga nieruchomego telefonu, odpowiedniego kadru,
-kalibracji i widoczności barków/głowy. Kamera z boku wymaga widoczności
-odpowiednich stawów; w desce również ręki podpierającej ciało.
-Postęp zapisuje się na tym samym adresie w tej samej przeglądarce.
-Nie kasuj danych strony, jeśli chcesz zachować wynik.
-Gra nie zapisuje ani nie wysyła wideo. Model i biblioteka są pobierane
-z zewnętrznych serwerów. Grafika to CSS z efektem głębi, bez modeli 3D.
+Nie testowano rzeczywistych ćwiczeń ani fizycznej kamery na iPhonie.
+Większa czułość może też powodować fałszywe punkty. Kamera wymaga internetu
+i stabilnego kadru. Telefon nie mierzy ciężaru hantla ani prędkości bieżni.
+Bieżnia to ręczny timer zależny od prędkości wpisanej przez użytkownika.
+Postęp lokalny na danym adresie, w danej przeglądarce.
+Nie kasuj danych strony, jeśli chcesz zachować wyniki.
 
 Uruchamianie i aktualizacja: INSTRUKCJA.html.
