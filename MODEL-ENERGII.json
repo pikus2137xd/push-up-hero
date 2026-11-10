@@ -1,0 +1,119 @@
+{
+  "referenceKg": 70,
+  "formula": "gross kcal/min = MET * 3.5 * referenceKg / 200",
+  "modelCadenceNote": "Repetitions per minute are explicit game assumptions, not measured expenditure per repetition. Timed modes use 60 seconds/minute. Shorter range of motion can expend less than this reference model.",
+  "rates": [
+    {
+      "name": "Pompki",
+      "met": 7.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02020"
+    },
+    {
+      "name": "Deska",
+      "met": 2.8,
+      "unitsPerMinute": 60,
+      "sourceCode": "02024"
+    },
+    {
+      "name": "Bieżnia — odniesienie 6 km/h",
+      "met": 4.8,
+      "unitsPerMinute": 60,
+      "sourceCode": "17358"
+    },
+    {
+      "name": "Brzuszki",
+      "met": 2.8,
+      "unitsPerMinute": 20,
+      "sourceCode": "02024"
+    },
+    {
+      "name": "Ciężarki",
+      "met": 3.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02054"
+    },
+    {
+      "name": "Przysiady",
+      "met": 3,
+      "unitsPerMinute": 20,
+      "sourceCode": "02056"
+    },
+    {
+      "name": "Pajacyki",
+      "met": 7.5,
+      "unitsPerMinute": 40,
+      "sourceCode": "02020"
+    },
+    {
+      "name": "Wysokie kolana",
+      "met": 4.8,
+      "unitsPerMinute": 50,
+      "sourceCode": "12025"
+    },
+    {
+      "name": "Padnij–powstań",
+      "met": 7.5,
+      "unitsPerMinute": 10,
+      "sourceCode": "02020"
+    },
+    {
+      "name": "Skłony",
+      "met": 2.3,
+      "unitsPerMinute": 15,
+      "sourceCode": "02101"
+    }
+  ],
+  "sources": [
+    "https://pacompendium.com/conditioning-exercise/",
+    "https://pacompendium.com/walking/",
+    "https://pacompendium.com/running/"
+  ],
+  "treadmillPoints": [
+    [
+      0,
+      0
+    ],
+    [
+      3,
+      2.8
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4.8,
+      3.8
+    ],
+    [
+      6,
+      4.8
+    ],
+    [
+      6.8,
+      6.5
+    ],
+    [
+      8.2,
+      8.5
+    ],
+    [
+      10,
+      9.3
+    ],
+    [
+      12,
+      11.8
+    ],
+    [
+      16,
+      14.8
+    ],
+    [
+      20,
+      19.8
+    ]
+  ],
+  "limits": "Adult reference model, not individualized health advice or physical calorie measurement. Target may be split over multiple sessions."
+}

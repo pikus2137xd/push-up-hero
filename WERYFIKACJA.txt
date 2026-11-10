@@ -1,58 +1,62 @@
-TRENING HERO 4.0 — 10 listopada 2026
+TRENING HERO 5.0 — 10 listopada 2026
 
-ZMIANY
-- Domyślne „Czułe — krótsze ruchy”, z wyborem profilu Dokładne.
-- Pompki przodem: próg 14% szerokości barków (wcześniej 24%),
-  łagodniejszy powrót, suwak 8–40%, opis „mniej = czulej”.
-- Płytsze zakresy dla pompek bokiem, przysiadów, brzuszków i hantli;
-  łatwiejszy rozstaw pajacyków i niższe uniesienie kolan.
-- Czułe: stabilizacja 110 ms i odstęp 650 ms; Dokładne: 180/850 ms.
-- Zachowana kalibracja, ruch w obie strony, odrzucanie samych drgnięć,
-  samego kiwania głową i utraty widoczności. Dokładność nie jest gwarantowana.
-- Osiem osobnych bossów z innymi nazwami, kolorami, detalami wyglądu,
-  historiami i zakończeniami. Niezależne HP i liczby zwycięstw.
-- Resetuj bossa: jednym kliknięciem przywraca HP i początek bieżącej
-  historii, zatrzymuje trening, zachowuje statystyki i monety.
-- Nagroda za pierwsze zwycięstwo nie powtarza się po resecie.
-- Migracja poprzednich wyników i monet; dawna wspólna walka zostaje
-  przypisana pompkowemu bossowi, pozostałe siedem misji startuje od nowa.
+NOWE FUNKCJE
+- Lobby wybiera tryby: Casual albo Spalanie jedzenia.
+- 10 ćwiczeń, w tym padnij–powstań i skłony, z obsługą kamery.
+- 20 porcji jedzenia z podaną gramaturą i przybliżoną energią.
+- Cele HP zależą od jedzenia i wybranego ćwiczenia; zapis osobny
+  dla każdej z 200 kombinacji, niezależny od walk Casual.
+- W ćwiczeniach powtórzeniowych 1 HP to powtórzenie, w desce sekunda,
+  w bieżni sekunda modelowa przy 6 km/h. Większa prędkość daje więcej HP.
+- Deska w trybie jedzenia nalicza czas bez mnożnika obrażeń Casual.
+- Cele można kontynuować w wielu sesjach; ułamki czasu też są zapisywane.
+- Ukryto cios testowy w trybie jedzenia, by nie dodawać fikcyjnego kredytu.
+- Pięciu nowych bossów: Grom, Liana, Baron Szkarłatny, Lodowy Czarodziej,
+  Król Chrup. Łącznie 13 różnych nazw i wariantów wyglądu/historii.
+- Zachowano czułość, reset bossa, monety i migrację dotychczasowych wyników.
 
-TESTY AUTOMATYCZNE
-23 grupy testów logiki w Node, na sztucznych danych sylwetki:
-- niezależność HP, własne historie i zakończenia wszystkich 8 bossów;
-- reset zachowuje statystyki/monety i nie dubluje nagrody;
-- migracja zapisu wersji 2/3 do 4;
-- walki i oddzielny licznik testowy;
-- liczenie dla wszystkich trybów ruchu oraz model deski/bieżni;
-- płytsze ruchy zaliczają się w Czułe i nie w Dokładne;
-- płytkie pompki przodem z częściowym powrotem;
-- odrzucenie samego kiwania głową, drgnięć, przerw i utraty widoczności;
-- stabilizacja oraz konieczność ruchu w obie strony.
-Syntetyczne dane nie zastępują testu na ćwiczącej osobie.
-Składnia app.js, core.js i sw.js: sprawdzana przed publikacją.
-Test kodu aplikacji w symulowanym DOM potwierdził także podpięcie
-przycisku resetu, niezależność HP, zakończenie i ponowny początek historii,
-zachowanie monet/liczników oraz zmianę profilu czułości i schemat zapisu.
-To test kodu zdarzeń aplikacji, nie test fizycznej kamery ani przeglądarki.
+DANE I ZAŁOŻENIA
+20 wartości energii na 100 g pobrano z nutrient 1008 oficjalnego zestawu
+USDA FNDDS 2021–2023 (release 2024-10-31). Gramatury przykładowych porcji
+wybrano dla gry, energię przemnożono i zaokrąglono. Rekordy i FDC ID są
+w ZRODLA-JEDZENIA.json. To nie wartości wszystkich marek i receptur.
+Model aktywności: kategorie 2024 Adult Compendium; 70 kg, MET * 3.5 * 70 / 200
+kcal/min brutto i jawnie przyjęte tempo powtórzeń. Najbliższe kategorie MET
+nie są indywidualną kalorymetrią. Model dotyczy dorosłych 19–59 lat;
+nie jest kalkulatorem pediatrycznym ani planem treningowym.
+Model tempa i źródła: MODEL-ENERGII.json oraz INSTRUKCJA.html#energia.
 
-TESTY PRZEGLĄDARKI
-Wyświetlenie nowego pompkowego i deskowego bossa, ich historii i własnych HP.
-Przełącznik Dokładne/Czułe zmienia próg na 24%/14%.
-Dalsze wykonane kontrole UI i publikacji opisuje raport publikacji obok ZIP-a.
-Po wznowieniu podglądu sprawdzono w rzeczywistej przeglądarce:
-- cios testowy obniża HP z 30 do 29;
-- Resetuj bossa przywraca 30/30 HP jednym kliknięciem;
-- przejście do deski pokazuje innego bossa z niezależnym 70/70 HP;
-- pokonanie pompkowego bossa wyświetla zakończenie historii;
-- Zagraj ponownie przywraca jej początek i 30/30 HP, zachowując 25 monet
-  i licznik 31 ciosów testowych.
+WYKONANE TESTY
+- 23 grupy regresyjnych testów logiki ćwiczeń i niezależnych walk.
+- 12 nowych grup: 20 porcji/10 ćwiczeń/13 bossów; wszystkie 200 planów;
+  ceil kalorii na jednostkę; porównanie pompek i brzuszków; separacja HP;
+  ułamkowy czas, reset, ukończenie i nagroda tylko raz; błędne dane;
+  monotoniczna prędkość; migracja v4; padnij–powstań i skłony.
+- 5 grup integracji kodu aplikacji w symulowanym DOM: wybór obu trybów
+  i powroty, niezależne postępy, blokada ciosu testowego w jedzeniu,
+  brak mnożnika deski, timer/prędkość/pauza/odświeżenie, historia i rewanż.
+- Łącznie 40 grup. Dane sylwetki w testach są sztuczne.
+- Składnia JavaScript, lokalne odwołania HTML, manifest i pliki cache.
+- Przeglądarka Windows: wybór 20 porcji i 10 ćwiczeń; burger 200 g daje
+  1254 HP dla pompek i 3359 HP dla brzuszków. Bieżnia startuje z 5878 HP.
+- Timer bieżni w trybie jedzenia zmniejszył HP do 5865 przy 6 km/h;
+  model pokazał około 1.3 kcal. Po pauzie i odświeżeniu zostało 5865 HP.
+- Nowe pokoje Casual pokazują Groma (padnij–powstań) i Lianę (skłony).
+  Lód pokazuje Lodowego Czarodzieja, jabłko Króla Chrupa, burger Barona.
+- Wąski układ: viewport 390x844, 375 px dostępnej szerokości;
+  brak przepełnienia poziomego w lobby trybów i wyborze jedzenia.
+  To zmiana szerokości przeglądarki, nie emulacja Safari/iOS.
+- ZIP: sprawdzenie CRC, zgodności bajtowej i kompletności odwołań.
+  Suma SHA-256 w zewnętrznym raporcie ZIP. Weryfikacja publicznej publikacji
+  jest w osobnym pliku raportu, jeśli została zakończona.
 
-OGRANICZENIA
-Nie testowano rzeczywistych ćwiczeń ani fizycznej kamery na iPhonie.
-Większa czułość może też powodować fałszywe punkty. Kamera wymaga internetu
-i stabilnego kadru. Telefon nie mierzy ciężaru hantla ani prędkości bieżni.
-Bieżnia to ręczny timer zależny od prędkości wpisanej przez użytkownika.
-Postęp lokalny na danym adresie, w danej przeglądarce.
-Nie kasuj danych strony, jeśli chcesz zachować wyniki.
+NIE TESTOWANO
+Fizycznej kamery na iPhonie, rzeczywistych ćwiczeń, dokładności zliczania
+na osobie ani rzeczywistego wydatku energetycznego.
+Kamera nie mierzy kalorii, masy hantli ani prędkości bieżni.
+Krótsze ruchy Czułe mogą zużywać mniej energii od przyjętego modelu.
+Nie należy traktować HP jako zalecanej liczby powtórzeń w jednej sesji.
 
-Uruchamianie i aktualizacja: INSTRUKCJA.html.
+Zapis jest lokalny. Nie kasuj danych strony, aby zachować wyniki.
+Kamera wymaga internetu. Gra nie zapisuje ani nie wysyła wideo.
+Instrukcja: INSTRUKCJA.html.
