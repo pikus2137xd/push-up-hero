@@ -1,0 +1,52 @@
+PUSH-UP HERO PWA — odtworzony prototyp 2.0
+Data: 2026-11-09
+
+STARY ZAŁĄCZNIK
+W tym środowisku Windows nie jest dostępny katalog /mnt/data poprzedniej
+sesji ChatGPT. Sprawdzenie wskazanej ścieżki zwróciło False. W katalogach
+roboczych tej rozmowy nie było plików wcześniejszego projektu.
+Nie można więc sprawdzić CRC ani zawartości STAREGO archiwum ani potwierdzić,
+czy wciąż istnieje w środowisku, w którym zostało pierwotnie utworzone.
+Nowe archiwum zawiera odtworzony projekt, a nie odzyskany stary plik.
+
+WYKONANE SPRAWDZENIA
+- Node: poprawna składnia app.js, core.js, sw.js.
+- 9 grup automatycznych testów logiki: schemat zapisu, trzy walki,
+  nagrody 25/50/75, blokada ciosów po zwycięstwie, przejścia etapów,
+  geometria kąta, pełne powtórzenie, odrzucanie drgnięć, utraty widoczności,
+  długiej przerwy między klatkami oraz brak podwójnego zliczania.
+- Przeglądarka na Windowsie: 8 + 12 + 16 ciosów testowych, trzej pokonani
+  bossowie, 150 monet, 36 ciosów testowych i 0 pompek z kamery.
+- Zapis zachował się po odświeżeniu strony.
+- Model MediaPipe 0.10.21, WASM i model Pose Landmarker Lite pobrano
+  i uruchomiono w przeglądarce, delegate CPU. Analiza pustego obrazu
+  640x480 zakończyła się powodzeniem, wykryto 0 sylwetek.
+- HTTP 200: lokalna strona, moduł biblioteki, plik WASM i model.
+- Widok telefoniczny: zadany viewport 390x844, dostępna szerokość treści
+  375 px po odjęciu paska przewijania; brak poziomego przepełnienia.
+  Jest to zmiana rozmiaru okna przeglądarki, nie emulacja Safari/iOS.
+- Po zatrzymaniu serwera lokalnego gra wczytała się z pamięci service
+  workera, zachowując ekran zwycięstwa. To test braku dostępu do serwera
+  gry; nie test offline modelu AI (ten wymaga internetu).
+- Nowy ZIP: sprawdzenie CRC wszystkich wpisów, nazw ścieżek, kompletności,
+  identyczności zawartości z plikami projektu i SHA-256. Wynik i suma
+  znajdują się w zewnętrznym pliku RAPORT-ZIP.txt obok archiwum.
+
+NIE WYKONANO
+- Testu kamery na fizycznym iPhonie ani innym fizycznym urządzeniu.
+- Testu rzeczywistych pompek, dokładności rozpoznawania i błędnych zliczeń.
+- Testu instalacji na ekranie początkowym iPhone'a ani publikacji na GitHub.
+- Pełnego testu offline kamery AI; biblioteka i model są zewnętrzne.
+
+OGRANICZENIA
+To prototyp. Ruchy innych typów mogą zostać błędnie zliczone. Licznik nie
+ocenia techniki ćwiczenia. Kalibracja i wydajność wymagają testu na telefonie.
+Grafika CSS z efektem głębi, nie pełne modele 3D. Kamera AI wymaga internetu.
+Postęp jest lokalny, bez synchronizacji konta. Model i biblioteka nie są
+częścią ZIP-a. Pierwszy start PWA wymaga HTTP localhost lub hostingu HTTPS.
+
+SZYBKI START
+Windows: rozpakuj ZIP, zainstaluj Python 3, uruchom START-WINDOWS.cmd.
+iPhone: opublikuj pliki na GitHub Pages, otwórz adres HTTPS w Safari,
+Udostępnij -> Dodaj do ekranu początkowego.
+Pełna instrukcja: INSTRUKCJA.html. Test modelu: DIAGNOSTYKA.html (online).
