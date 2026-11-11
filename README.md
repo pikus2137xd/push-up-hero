@@ -1,6 +1,6 @@
 Wersja 6.0: po wybraniu trybu podaj wiek (6–99). Wiek wybiera poziom gry, nie zalecenie treningowe. Poza wiekiem 19–59 tryb jedzenia jest krótką przygodą punktową bez przeliczania kalorii. Np. 6–8 lat: 3 padnij–powstań, 10 sekund deski. Postęp poziomów wieku zapisuje się osobno. Aktualizacje znajdziesz w lobby. Dzieci powinny grać z dorosłym. Przerwy są zawsze dozwolone.
 
-# TRENING HERO 5.0
+# TRENING HERO 6.0
 
 Gra: https://pikus2137xd.github.io/push-up-hero/
 

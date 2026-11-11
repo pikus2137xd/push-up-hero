@@ -1,4 +1,4 @@
-const CACHE='trening-hero-shell-v6.0.1';
+const CACHE='trening-hero-shell-v6.0.2';
 const SHELL=['./','./index.html','./style.css','./v5.css','./core.js','./foods.js','./energy.js','./profiles.js','./updates.js','./app.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./INSTRUKCJA.html'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>(k.startsWith('trening-hero-shell-')||k.startsWith('push-up-hero-shell-'))&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
