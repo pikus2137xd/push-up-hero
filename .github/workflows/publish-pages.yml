@@ -1,0 +1,48 @@
+name: Publish TRENING HERO
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - .github/workflows/recover-pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trening-hero-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - name: Test the game
+        run: |
+          node TEST-LOGIC.cjs
+          node TEST-ENERGIA.cjs
+          node TEST-KAMPANIA.cjs
+          node TEST-APP.cjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish the game
+        id: deployment
+        uses: actions/deploy-pages@v4
