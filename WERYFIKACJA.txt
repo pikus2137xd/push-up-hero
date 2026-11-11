@@ -1,62 +1,7 @@
-TRENING HERO 5.0 — 10 listopada 2026
-
-NOWE FUNKCJE
-- Lobby wybiera tryby: Casual albo Spalanie jedzenia.
-- 10 ćwiczeń, w tym padnij–powstań i skłony, z obsługą kamery.
-- 20 porcji jedzenia z podaną gramaturą i przybliżoną energią.
-- Cele HP zależą od jedzenia i wybranego ćwiczenia; zapis osobny
-  dla każdej z 200 kombinacji, niezależny od walk Casual.
-- W ćwiczeniach powtórzeniowych 1 HP to powtórzenie, w desce sekunda,
-  w bieżni sekunda modelowa przy 6 km/h. Większa prędkość daje więcej HP.
-- Deska w trybie jedzenia nalicza czas bez mnożnika obrażeń Casual.
-- Cele można kontynuować w wielu sesjach; ułamki czasu też są zapisywane.
-- Ukryto cios testowy w trybie jedzenia, by nie dodawać fikcyjnego kredytu.
-- Pięciu nowych bossów: Grom, Liana, Baron Szkarłatny, Lodowy Czarodziej,
-  Król Chrup. Łącznie 13 różnych nazw i wariantów wyglądu/historii.
-- Zachowano czułość, reset bossa, monety i migrację dotychczasowych wyników.
-
-DANE I ZAŁOŻENIA
-20 wartości energii na 100 g pobrano z nutrient 1008 oficjalnego zestawu
-USDA FNDDS 2021–2023 (release 2024-10-31). Gramatury przykładowych porcji
-wybrano dla gry, energię przemnożono i zaokrąglono. Rekordy i FDC ID są
-w ZRODLA-JEDZENIA.json. To nie wartości wszystkich marek i receptur.
-Model aktywności: kategorie 2024 Adult Compendium; 70 kg, MET * 3.5 * 70 / 200
-kcal/min brutto i jawnie przyjęte tempo powtórzeń. Najbliższe kategorie MET
-nie są indywidualną kalorymetrią. Model dotyczy dorosłych 19–59 lat;
-nie jest kalkulatorem pediatrycznym ani planem treningowym.
-Model tempa i źródła: MODEL-ENERGII.json oraz INSTRUKCJA.html#energia.
-
-WYKONANE TESTY
-- 23 grupy regresyjnych testów logiki ćwiczeń i niezależnych walk.
-- 12 nowych grup: 20 porcji/10 ćwiczeń/13 bossów; wszystkie 200 planów;
-  ceil kalorii na jednostkę; porównanie pompek i brzuszków; separacja HP;
-  ułamkowy czas, reset, ukończenie i nagroda tylko raz; błędne dane;
-  monotoniczna prędkość; migracja v4; padnij–powstań i skłony.
-- 5 grup integracji kodu aplikacji w symulowanym DOM: wybór obu trybów
-  i powroty, niezależne postępy, blokada ciosu testowego w jedzeniu,
-  brak mnożnika deski, timer/prędkość/pauza/odświeżenie, historia i rewanż.
-- Łącznie 40 grup. Dane sylwetki w testach są sztuczne.
-- Składnia JavaScript, lokalne odwołania HTML, manifest i pliki cache.
-- Przeglądarka Windows: wybór 20 porcji i 10 ćwiczeń; burger 200 g daje
-  1254 HP dla pompek i 3359 HP dla brzuszków. Bieżnia startuje z 5878 HP.
-- Timer bieżni w trybie jedzenia zmniejszył HP do 5865 przy 6 km/h;
-  model pokazał około 1.3 kcal. Po pauzie i odświeżeniu zostało 5865 HP.
-- Nowe pokoje Casual pokazują Groma (padnij–powstań) i Lianę (skłony).
-  Lód pokazuje Lodowego Czarodzieja, jabłko Króla Chrupa, burger Barona.
-- Wąski układ: viewport 390x844, 375 px dostępnej szerokości;
-  brak przepełnienia poziomego w lobby trybów i wyborze jedzenia.
-  To zmiana szerokości przeglądarki, nie emulacja Safari/iOS.
-- ZIP: sprawdzenie CRC, zgodności bajtowej i kompletności odwołań.
-  Suma SHA-256 w zewnętrznym raporcie ZIP. Weryfikacja publicznej publikacji
-  jest w osobnym pliku raportu, jeśli została zakończona.
-
-NIE TESTOWANO
-Fizycznej kamery na iPhonie, rzeczywistych ćwiczeń, dokładności zliczania
-na osobie ani rzeczywistego wydatku energetycznego.
-Kamera nie mierzy kalorii, masy hantli ani prędkości bieżni.
-Krótsze ruchy Czułe mogą zużywać mniej energii od przyjętego modelu.
-Nie należy traktować HP jako zalecanej liczby powtórzeń w jednej sesji.
-
-Zapis jest lokalny. Nie kasuj danych strony, aby zachować wyniki.
-Kamera wymaga internetu. Gra nie zapisuje ani nie wysyła wideo.
-Instrukcja: INSTRUKCJA.html.
+TRENING HERO 6.0 — 11.11.2026
+44 grupy testów: 23 logiki ruchu i zapisu, 12 energii i nowych ćwiczeń, 9 integracji aplikacji.
+Sprawdzono wybór wieku, cele 6–8/9–12/13–18/19–59/60+, oddzielenie postępu, reset bossa, brak kalorii w dziecięcym trybie jedzenia, timery, pauzę i ponowne otwarcie.
+Cele punktowe są poziomem gry, nie ustalonymi medycznie normami wysiłku dla wieku.
+Przelicznik Adult Compendium dotyczy tylko modelu osoby dorosłej 70 kg w wieku 19–59 lat.
+Źródła zasad dopasowania aktywności do wieku i możliwości: https://www.cdc.gov/physical-activity-basics/guidelines/children.html oraz https://www.nice.org.uk/guidance/ph17/chapter/Recommendations
+Nie testowano kamery na fizycznym iPhonie ani rzeczywistego spalania kalorii.
