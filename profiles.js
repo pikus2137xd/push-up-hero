@@ -1,6 +1,6 @@
 (function(root){'use strict';
-const groups=[{id:'6-8',max:8,goals:[5,10,30,6,6,6,8,10,3,6]},{id:'9-12',max:12,goals:[8,15,45,10,10,10,12,14,5,10]},{id:'13-18',max:18,goals:[12,20,60,14,12,14,18,20,8,12]},{id:'adult',max:59},{id:'60+',max:99,goals:[8,15,45,10,10,10,12,14,5,10]}];
-const ids=['pushup','plank','treadmill','situp','curl','squat','jack','knees','burpee','bend'];
+const groups=[{id:'6-8',max:8,goals:[5,10,30,6,6,6,8,10,3,6,4,6,5,5,6,6,6,4,4,5]},{id:'9-12',max:12,goals:[8,15,45,10,10,10,12,14,5,10,6,8,8,8,10,10,10,6,6,8]},{id:'13-18',max:18,goals:[12,20,60,14,12,14,18,20,8,12,10,12,12,12,14,14,14,10,10,12]},{id:'adult',max:59},{id:'60+',max:99,goals:[8,15,45,10,10,10,12,14,5,10,6,8,8,8,10,10,10,6,6,8]}];
+const ids=['pushup','plank','treadmill','situp','curl','squat','jack','knees','burpee','bend','lunge','calf','sideleg','sidebend','armraise','lateralraise','boxing','bridge','legraise','seatedkick'];
 function profile(age){if(!Number.isInteger(age)||age<6||age>99)return null;return groups.find(g=>age<=g.max);}
 function goal(age,mode){const p=profile(age);if(!p||p.id==='adult')return null;return p.goals[ids.indexOf(mode)];}
 function key(age,mode,food){return profile(age).id+':'+(food||'casual')+':'+mode;}

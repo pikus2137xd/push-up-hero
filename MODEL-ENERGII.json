@@ -62,6 +62,76 @@
       "met": 2.3,
       "unitsPerMinute": 15,
       "sourceCode": "02101"
+    },
+    {
+      "name": "Wykroki",
+      "met": 3,
+      "unitsPerMinute": 20,
+      "sourceCode": "02056",
+      "categoryProxy": true
+    },
+    {
+      "name": "Wspięcia na palce",
+      "met": 3.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02030",
+      "categoryProxy": true
+    },
+    {
+      "name": "Noga w bok",
+      "met": 3.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02030",
+      "categoryProxy": true
+    },
+    {
+      "name": "Skłony boczne",
+      "met": 2.3,
+      "unitsPerMinute": 15,
+      "sourceCode": "02101",
+      "categoryProxy": true
+    },
+    {
+      "name": "Ręce nad głowę",
+      "met": 3.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02030",
+      "categoryProxy": true
+    },
+    {
+      "name": "Ramiona w bok",
+      "met": 3.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02030",
+      "categoryProxy": true
+    },
+    {
+      "name": "Cios prosty",
+      "met": 3.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02030",
+      "categoryProxy": true
+    },
+    {
+      "name": "Most biodrowy",
+      "met": 3.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02030",
+      "categoryProxy": true
+    },
+    {
+      "name": "Unoszenie nóg leżąc",
+      "met": 3.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02030",
+      "categoryProxy": true
+    },
+    {
+      "name": "Prostowanie nogi siedząc",
+      "met": 3.5,
+      "unitsPerMinute": 20,
+      "sourceCode": "02030",
+      "categoryProxy": true
     }
   ],
   "sources": [
@@ -115,5 +185,6 @@
       19.8
     ]
   ],
-  "limits": "Adult reference model, not individualized health advice or physical calorie measurement. Target may be split over multiple sessions."
+  "limits": "Adult reference model, not individualized health advice or physical calorie measurement. Target may be split over multiple sessions.",
+  "newExerciseNote": "New modes use broad Adult Compendium category proxies, not measured costs of these specific movements. Cadence 20/min (side bends 15/min) is a game assumption. Adult reference 70 kg only, ages 19–59."
 }

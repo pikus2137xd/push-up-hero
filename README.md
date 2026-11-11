@@ -1,15 +1,17 @@
-Wersja 6.0: po wybraniu trybu podaj wiek (6–99). Wiek wybiera poziom gry, nie zalecenie treningowe. Poza wiekiem 19–59 tryb jedzenia jest krótką przygodą punktową bez przeliczania kalorii. Np. 6–8 lat: 3 padnij–powstań, 10 sekund deski. Postęp poziomów wieku zapisuje się osobno. Aktualizacje znajdziesz w lobby. Dzieci powinny grać z dorosłym. Przerwy są zawsze dozwolone.
+# TRENING HERO 7.0
 
-# TRENING HERO 6.0
+Gra: https://pikus2137xd.github.io/push-up-hero/#lobby
 
-Gra: https://pikus2137xd.github.io/push-up-hero/
+20 ćwiczeń i po 4 różnych bossów Casual na każde z nich (80 łącznie). Pokonaj aktualnego bossa i wybierz Następny boss; kolejne etapy mają 125%, 160% i 200% początkowego HP. Wybór wieku nadal ustawia krótsze cele gry. Reset odnawia wybranego bossa; poprzednie wyniki i nagrody zostają.
 
-Lobby ma dwa tryby: **Casual** i **Spalanie jedzenia**. Casual zachowuje osobne historie i HP dla każdego z 10 ćwiczeń. Tryb jedzenia oferuje 20 przykładowych porcji; po wybraniu jedzenia i ćwiczenia przelicza orientacyjną energię porcji na cel powtórzeń lub czasu. Każda kombinacja ma własny zapis.
+Skłony 7.0: bark i biodro z boku, sekunda spokojnego stania, następnie pochylenie i powrót. Kolana i stopy nie muszą być w kadrze. Licznik wygładza drgania i wymaga stabilnych pozycji. To eksperymentalne rozpoznawanie ruchów, nie ocena techniki.
 
-Nowe ćwiczenia: padnij–powstań (stanie–podpór–stanie, bez obowiązkowej pompki i wyskoku) oraz skłony. Nowi bossowie: Grom, Liana, Baron Szkarłatny, Lodowy Czarodziej i Król Chrup. Łącznie 13 przeciwników.
+Nowe ćwiczenia: wykroki, wspięcia na palce, noga w bok, skłony boczne, ręce nad głowę, ramiona w bok, cios prosty, most biodrowy, unoszenie nóg leżąc i prostowanie nogi siedząc.
 
-Przelicznik korzysta z USDA FNDDS 2021–2023 i kategorii MET z 2024 Adult Compendium. Model referencyjny: dorosła osoba 70 kg oraz jawnie założone tempo. To mechanika gry, nie pomiar wydatku energetycznego ani zalecenie treningowe. Rzeczywisty wydatek zależy od osoby, tempa, zakresu ruchu i obciążenia. Cel można podzielić na wiele sesji. Szczegóły i źródła: INSTRUKCJA.html#energia, ZRODLA-JEDZENIA.json i MODEL-ENERGII.json.
+Po wybraniu trybu podaj wiek6–99. Dla grup6–8/9–12/13–18/60+ jedzenie jest motywem krótkiej przygody punktowej, bez przeliczania kalorii. To poziom gry, nie zalecenie treningowe. Dzieci grają z dorosłym. Przerwy są zawsze dozwolone.
 
-Kamera: eksperymentalne rozpoznawanie ruchów, bez testów fizycznego iPhone'a. Pompki przodem korzystają z kalibracji ruchu głowy i barków. Nadal domyślnie działa Czułe — krótsze ruchy. Bieżnia jest ręcznym timerem i nie odczytuje pasa urządzenia. W trybie jedzenia deska nie używa mnożnika Casual do kalorii.
+Tryb jedzenia dla wieku19–59: 20 porcji z USDA FNDDS i orientacyjny model osoby70kg z Adult Compendium. Dla nowych ruchów użyto jawnych przybliżeń do kategorii ogólnego wysiłku i założonego tempa. To nie pomiar kalorii; szczegóły i źródła: INSTRUKCJA.html#energia oraz MODEL-ENERGII.json.
 
-Windows: Python 3 i START-WINDOWS.cmd. iPhone: HTTPS w Safari, Dodaj do ekranu początkowego. Postęp jest lokalny i migrowany z poprzedniej wersji. Kamera wymaga internetu; wideo jest analizowane na urządzeniu, bez zapisywania ani wysyłania.
+Windows: Python3, START-WINDOWS.cmd. iPhone: otwórz link HTTPS w Safari, Udostępnij → Dodaj do ekranu początkowego. Wideo jest analizowane lokalnie; model kamery wymaga internetu. Nie testowano fizycznego iPhone'a ani rzeczywistych ćwiczeń.
+
+Testy w folderze: node TEST-LOGIC.cjs, node TEST-ENERGIA.cjs, node TEST-KAMPANIA.cjs, node TEST-APP.cjs. Historia aktualizacji w lobby.

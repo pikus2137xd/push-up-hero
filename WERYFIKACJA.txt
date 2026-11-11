@@ -1,7 +1,6 @@
-TRENING HERO 6.0 — 11.11.2026
-44 grupy testów: 23 logiki ruchu i zapisu, 12 energii i nowych ćwiczeń, 9 integracji aplikacji.
-Sprawdzono wybór wieku, cele 6–8/9–12/13–18/19–59/60+, oddzielenie postępu, reset bossa, brak kalorii w dziecięcym trybie jedzenia, timery, pauzę i ponowne otwarcie.
-Cele punktowe są poziomem gry, nie ustalonymi medycznie normami wysiłku dla wieku.
-Przelicznik Adult Compendium dotyczy tylko modelu osoby dorosłej 70 kg w wieku 19–59 lat.
-Źródła zasad dopasowania aktywności do wieku i możliwości: https://www.cdc.gov/physical-activity-basics/guidelines/children.html oraz https://www.nice.org.uk/guidance/ph17/chapter/Recommendations
-Nie testowano kamery na fizycznym iPhonie ani rzeczywistego spalania kalorii.
+TRENING HERO 7.0
+Testy: logika ruchu i zapisu, model energii400 kombinacji, kampanie i rosnące HP, migracja wyników, poziomy wieku, nowe ruchy, stabilizacja skłonów, utrata widoczności, pauza, reset i nagrody.
+Dane ruchu są syntetyczne. Testy integracji uruchamiają właściwy app.js z symulowanym DOM.
+Nie testowano fizycznego iPhone'a, rzeczywistych ćwiczeń ani faktycznego wydatku kalorii.
+Cele wieku i przyrost HP są mechaniką gry, nie normą treningową.
+Źródło kategorii modelu energii: https://pacompendium.com/conditioning-exercise/
