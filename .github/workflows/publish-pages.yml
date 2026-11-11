@@ -3,8 +3,6 @@ name: Publish TRENING HERO
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - .github/workflows/recover-pages.yml
   workflow_dispatch:
 
 permissions:
